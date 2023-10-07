@@ -1,0 +1,24 @@
+.imgCarta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10rem;
+
+}
+
+.imgCarta img {
+    height: 30rem;
+    width: 80%;
+    border-radius: 100px;
+}
+
+.imgEntrada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+.imgEntrada img{
+    p;
+    border-radius: 100px;
+}

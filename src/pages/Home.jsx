@@ -7,7 +7,7 @@ const Home = () => {
       <div className="content">
         <h3>fresh <span>food in the</span> morning </h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, ipsam.</p>
-        <Button variant="contained" color="error">Carta</Button>
+        <Button variant="contained" color="error" size="large" href="./menu">Carta</Button>
 
       </div>
 

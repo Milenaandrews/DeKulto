@@ -24,8 +24,8 @@ export const NavBar = () => {
          <a href="#" className="logo"><img src={Logo} alt="" /></a>  
         <nav className="navbar" ref={navbarRef}>
             <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/menu">Menu</a>
+            <a href="/about">Nosotros</a>
+            <a href="/menu">Carta</a>
             <a href="/reserva">Reserva</a>
             <a href="/contacto">Contacto</a>
         </nav>
