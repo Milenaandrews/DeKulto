@@ -1,4 +1,5 @@
-import React from 'react'
+import "./Home.css"
+import { Button } from "@mui/material"
 
 const Home = () => {
   return (
@@ -6,12 +7,15 @@ const Home = () => {
       <div className="content">
         <h3>fresh <span>food in the</span> morning </h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, ipsam.</p>
-        <a href='#' className='btn'>get your</a>
+        <Button variant="contained" color="error">Carta</Button>
 
       </div>
 
     </section>
+    
   )
+    
+    
 }
 
 export default Home

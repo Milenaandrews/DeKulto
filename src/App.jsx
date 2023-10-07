@@ -11,7 +11,7 @@ function App() {
     <>
     <NavBar/>
     <MainRouter/>
-    <Home/>
+    {/* <Home/> */}
     
     </>
   )

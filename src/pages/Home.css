@@ -1,0 +1,35 @@
+.home{
+    min-height: 100vh;
+    /* color:aliceblue; */
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, rgb(0 0 0 / 90%), rgb(68 68 68 / 35%)), url(../assets/images/ImagenHome.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* border: 3px solid red; */
+}
+
+.home .content{
+    max-width: 60rem;
+}
+
+.home span{
+    color:#d1111c;
+    text-transform: uppercase;
+}
+
+.home .content h3{
+    font-size: 6rem;
+    text-transform: uppercase;
+    color:aliceblue;
+
+}
+
+.home .content p{
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    color:aliceblue;
+    padding: 1rem 0;
+
+}
