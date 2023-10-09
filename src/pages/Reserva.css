@@ -1,0 +1,62 @@
+.reserva{
+    padding-top: 14rem;
+
+}
+
+.reserva .heading{
+    color: red;
+    padding: 2rem;
+
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+.reserva .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background: #fff;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.reserva .row .image{
+    flex: 1 1 45rem
+}
+
+.reserva .row img {
+    width: 100%;
+    /* object-fit: cover; */
+}
+
+.reserva .row form {
+    flex: 1 1 45rem;
+    display: flex;
+    width:100%;
+    padding: 3rem;
+    flex-wrap: wrap;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    /* justify-content: space-around; */
+   
+}
+
+.reserva .row form h3 {
+    color: red;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    padding-bottom: 3rem;
+    padding-left: 6rem;
+}
+
+.reserva .row form .inputs{
+    padding-left: 6rem;
+}
+
+.reserva .row form div{
+    
+    width: 95%;
+}
+

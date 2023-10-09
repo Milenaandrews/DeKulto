@@ -26,7 +26,7 @@ export const NavBar = () => {
             <a href="/">Home</a>
             <a href="/about">Nosotros</a>
             <a href="/menu">Carta</a>
-            <a href="/reserva">Reserva</a>
+            <a href="/reserva">Reservas</a>
             <a href="/contacto">Contacto</a>
         </nav>
         <div className="icon">
