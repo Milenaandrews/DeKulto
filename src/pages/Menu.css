@@ -28,6 +28,13 @@
     border: 3px solid blue
 }
 
+/* cambiooooos!!!! */
+.platos{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+
 
 @media (max-width: 768px){
     .imgCarta {

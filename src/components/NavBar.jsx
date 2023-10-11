@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import "./NavBar.css"
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 
 export const NavBar = () => {
@@ -21,13 +22,13 @@ export const NavBar = () => {
 
   return (
     <header className="header">
-         <a href="#" className="logo"><img src={Logo} alt="" /></a>  
+         <NavLink to="#" className="logo"><img src={Logo} alt="" /></NavLink>  
         <nav className="navbar" ref={navbarRef}>
-            <a href="/">Home</a>
-            <a href="/about">Nosotros</a>
-            <a href="/menu">Carta</a>
-            <a href="/reserva">Reservas</a>
-            <a href="/contacto">Contacto</a>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">Nosotros</NavLink>
+            <NavLink to="/menu">Carta</NavLink>
+            <NavLink to="/reserva">Reservas</NavLink>
+            <NavLink to="/contacto">Contacto</NavLink>
         </nav>
         <div className="icon">
           <div><SearchIcon fontSize="large" className="search" onClick={searchHandler}/></div>

@@ -1,0 +1,11 @@
+.tarjeta{
+    color:white;
+    width: 12rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.imagen{
+    max-width: 20rem;
+}
