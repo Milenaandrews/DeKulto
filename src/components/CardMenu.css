@@ -10,7 +10,7 @@
     max-width: 20rem;
 } */
 .tarjeta {
-    padding: 5rem;
+    padding: 4rem;
     text-align: center;
     /* display: flex;
     flex-wrap: wrap;
@@ -21,8 +21,29 @@
     width: 30rem;
 }
 
+.tarjeta .imagen{
+    max-width: 22rem;
+}
+.tarjeta .content{
+    padding-top: 25px;
+    }
+
+.tarjeta .content h3 {
+    color: red;
+    border: white;
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+}
+
+.tarjeta .content h4{
+    padding-bottom: 6px;
+}
+.tarjeta .content span{
+    font-size: 1.5rem;
+}
+
 .imagen {
-    height: 15rem;
+    height: 20rem;
     border-radius: 5px;
 }
 

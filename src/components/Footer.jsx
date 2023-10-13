@@ -1,6 +1,7 @@
 import "./Footer.css"
 
 export const Footer = () => {
+  // const scrollRef = React.useRef(null);
   return (
     <footer>
     <div className="footer">
@@ -13,6 +14,14 @@ export const Footer = () => {
             <li><a href="#"><i className="fa fa-linkedin-square"></i></a></li>
         </ul>
     </div>
+    
+    <div className="galeria">
+
+    </div>
+
+
+
+
     <div className="footer-bottom">
         <p>copyright &copy;2023 designed by <span>Milenaria</span></p>
     </div>

@@ -2,17 +2,22 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding-top: 16rem;
+    padding-top: 10rem;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .mapa{
     flex: 1 1 45rem;
     width: 100%;
+    max-width: ;
+    
 }
 
 .contact .row .content{
     flex: 1 1 45rem;
-    padding: 8rem;
+    padding: 5rem;
+    padding-left: 12rem;
     color: #fff;
     font-size: 3rem;
     background-color: #d1111c;
