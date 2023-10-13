@@ -1,4 +1,4 @@
-.imgCarta {
+.imgTitulo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,20 +8,20 @@
 
 }
 
-.imgCarta img {
+.imgTitulo img {
     height: 30rem;
     width: 80%;
     border-radius: 100px;
     border: 3px solid blue
 }
 
-.imgEntrada {
+.imgCarta {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.imgEntrada img {
+.imgCarta img {
     height: 20rem;
     width: 60rem;
     border-radius: 100px;
@@ -44,7 +44,7 @@
 
 
 @media (max-width: 768px) {
-    .imgCarta {
+    .imgTitulo {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -54,14 +54,14 @@
 
     }
 
-    .imgCarta img {
+    .imgTitulo img {
         height: 80%;
         width: 80%;
         border-radius: 100px;
         border: 3px solid red
     }
 
-    .imgEntrada {
+    .imgCarta {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -70,7 +70,7 @@
         height: 80%;
     }
 
-    .imgEntrada img {
+    .imgCarta img {
         height: 80%;
         width: 80%;
         border-radius: 100px;

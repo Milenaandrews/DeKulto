@@ -1,6 +1,7 @@
 import TerrazaImg from "../assets/images/terraza.jpg"
 import { Button } from "@mui/material"
 import "../pages/About.css"
+import FotoMesa from "../assets/images/fotomesa.jpg"
 
 
 export const About = () => {
@@ -12,7 +13,7 @@ export const About = () => {
         </h1>
         <div className="row">
           <div className="image">
-            <img src={TerrazaImg} alt="terraza" />
+            <img src={FotoMesa} alt="terraza" />
           </div>
           <div className="content">
             <h3>Qué nos hace especiales?</h3>

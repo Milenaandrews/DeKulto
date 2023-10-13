@@ -2,7 +2,7 @@ import cartaFoto from "../assets/images/carta.jpg"
 import entradas from "../assets/images/entradas.jpg"
 import { CardMenu } from "../components/CardMenu"
 import "../pages/Menu.css"
-
+import nigiri from "../assets/images/nigiri.jpg"
 export const Menu = () => {
 
   const cartaEntradas = [
@@ -32,11 +32,12 @@ export const Menu = () => {
 
   return (
     <section>
-      <div className="imgCarta">
+      <div className="imgTitulo">
         <img src={cartaFoto}></img>
 
       </div>
-      <div className="imgEntrada">
+
+      <div className="imgCarta">
         <img src={entradas}></img>
       </div>
       <div className="platos">
@@ -46,6 +47,19 @@ export const Menu = () => {
           ))
         }
       </div>
+      <div className="imgCarta">
+        <img src={nigiri}></img>
+      </div>
+      <div className="platos">
+        {
+          cartaEntradas.map((plato,index)=>(
+            <CardMenu key={index} plato={plato}/>
+          ))
+        }
+      </div>
+      
+      
+      
     </section>
 
   )
