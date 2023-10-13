@@ -1,0 +1,38 @@
+.contact .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 16rem;
+}
+
+.mapa{
+    flex: 1 1 45rem;
+    width: 100%;
+}
+
+.contact .row .content{
+    flex: 1 1 45rem;
+    padding: 8rem;
+    color: #fff;
+    font-size: 3rem;
+    background-color: #d1111c;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 1000px) {
+    .mapa {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+
+    }
+
+    .contact .row .content{
+        margin-top: 5rem;
+        padding: 3rem;
+        line-height: 45px;
+    }
+}
+

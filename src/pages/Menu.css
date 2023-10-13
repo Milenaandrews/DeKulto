@@ -19,9 +19,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    }
+}
 
-.imgEntrada img{
+.imgEntrada img {
     height: 20rem;
     width: 60rem;
     border-radius: 100px;
@@ -29,14 +29,21 @@
 }
 
 /* cambiooooos!!!! */
-.platos{
+.platos {
     display: flex;
-    flex-direction: column;
-    gap:2rem;
+    flex-wrap: wrap;
+    flex: 1 1 1 45rem;
+    gap: 2rem;
+    border: 3px solid red;
+
+    justify-content: center;
+
+
 }
 
 
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
     .imgCarta {
         display: flex;
         justify-content: center;
@@ -44,11 +51,27 @@
         padding-top: 10rem;
         padding-bottom: 1rem;
         height: 80%;
-    
+
     }
 
     .imgCarta img {
-        height: 80px;
+        height: 80%;
+        width: 80%;
+        border-radius: 100px;
+        border: 3px solid red
+    }
+
+    .imgEntrada {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        height: 80%;
+    }
+
+    .imgEntrada img {
+        height: 80%;
         width: 80%;
         border-radius: 100px;
         border: 3px solid red

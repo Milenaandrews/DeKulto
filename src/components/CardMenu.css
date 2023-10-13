@@ -1,4 +1,4 @@
-.tarjeta{
+/* .tarjeta{
     color:white;
     width: 12rem;
     box-sizing: border-box;
@@ -8,4 +8,30 @@
 
 .imagen{
     max-width: 20rem;
+} */
+.tarjeta {
+    padding: 5rem;
+    text-align: center;
+    /* display: flex;
+    flex-wrap: wrap;
+    align-items: center; */
+    justify-content: center;
+    border: 0.2rem solid white;
+    color: white;
+    width: 30rem;
+}
+
+.imagen {
+    height: 15rem;
+    border-radius: 5px;
+}
+
+.tarjeta:hover {
+    background: #d1111b64;
+    transition: 0.5s;
+}
+
+.tarjeta:hover .imagen {
+
+    transform: scale(1.2)
 }

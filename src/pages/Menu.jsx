@@ -5,7 +5,7 @@ import "../pages/Menu.css"
 
 export const Menu = () => {
 
-  const carta = [
+  const cartaEntradas = [
     {
       nombre: "Churrasco Palta",
       precio: 31321,
@@ -19,7 +19,14 @@ export const Menu = () => {
       descripcion: "ksalkjdslkdjlksajlkd",
       imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
 
-    }
+    },
+    {
+      nombre: "Completo Italiano",
+      precio: 364,
+      descripcion: "ksalkjdslkdjlksajlkd",
+      imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
+
+    },
   ]
 
 
@@ -34,9 +41,8 @@ export const Menu = () => {
       </div>
       <div className="platos">
         {
-          carta.map((plato,index)=>(
+          cartaEntradas.map((plato,index)=>(
             <CardMenu key={index} plato={plato}/>
-           
           ))
         }
       </div>
