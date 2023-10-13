@@ -1,9 +1,8 @@
 import Terraza from "../assets/images/terraza.jpg"
 import "../pages/Reserva.css"
-import { TextField } from "@mui/material"
+import { Button, TextField } from "@mui/material"
 import { useState } from "react"
 import moment from "moment"
-
 
 export const Reserva = () => {
     const initialReservation = {
@@ -49,7 +48,7 @@ export const Reserva = () => {
             </div>
             <div className="inputs">
               <div className="nombre">
-                <TextField inputProps={{type:"text", required:true}}value={reservation.nombre} name="nombre" onChange={handleReservationForm} id="outlined-basic" label="Nombre Completo" variant="filled" color="error" type="text"/>
+                <TextField inputProps={{type:"text", required:true}}value={reservation.nombre} name="nombre" onChange={handleReservationForm} id="outlined-basic" label="Nombre Completo" variant="filled" color="error"/>
               </div>
 
               <div className="telefono">
@@ -73,7 +72,10 @@ export const Reserva = () => {
 
             </div>
 
-            <button type="submit">enviar</button>
+            <Button variant="contained" color="error" size="large"  type="submit"  >Enviar</Button>
+            
+
+         
 
 
 
