@@ -2,10 +2,56 @@ import cartaFoto from "../assets/images/carta.jpg"
 import entradas from "../assets/images/entradas.jpg"
 import { CardMenu } from "../components/CardMenu"
 import "../pages/Menu.css"
-import nigiri from "../assets/images/nigiri.jpg"
 import entrada1 from "../assets/images/entrada1.jpg"
 import entrada2 from "../assets/images/entrada2.jpg"
+import { useState, useEffect } from "react"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../firebase/Firebase"
+import nigiri from "../assets/images/nigiri.jpg"
+
+
+
+
 export const Menu = () => {
+
+  const [menu, setMenu] = useState([]);
+
+  useEffect(() => {
+
+    const getMenu = async () => {
+      try {
+        const collectionRef = collection(db, "cartaentradas");
+        const response = await getDocs(collectionRef)
+
+        const docs = response.docs.map((doc) => {
+          const data = doc.data() //la informacion de cada documento que guarda firestore
+          data.id = doc.id
+          return data
+          // console.log(data)
+
+        })
+        setMenu(docs);
+
+
+      } catch (error) {
+        console.log(error)
+
+      }
+
+    }
+
+    getMenu()
+  }, [])
+
+  console.log(menu)
+
+
+
+
+
+
+
+
 
   const cartaEntradas = [
     {
@@ -68,8 +114,8 @@ export const Menu = () => {
       </div>
       <div className="platos">
         {
-          cartaEntradas.map((plato,index)=>(
-            <CardMenu key={index} plato={plato}/>
+          cartaEntradas.map((plato, index) => (
+            <CardMenu key={index} plato={plato} />
           ))
         }
       </div>
@@ -78,14 +124,14 @@ export const Menu = () => {
       </div>
       <div className="platos">
         {
-          cartaNigiri.map((plato,index)=>(
-            <CardMenu key={index} plato={plato}/>
+          cartaNigiri.map((plato, index) => (
+            <CardMenu key={index} plato={plato} />
           ))
         }
       </div>
-      
-      
-      
+
+
+
     </section>
 
   )
