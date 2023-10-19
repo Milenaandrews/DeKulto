@@ -3,35 +3,51 @@ import "../pages/Reserva.css"
 import { Button, TextField } from "@mui/material"
 import { useState } from "react"
 import moment from "moment"
+import { db } from "../firebase/Firebase"
+import { collection, addDoc, getDocs } from "firebase/firestore"
+
 
 export const Reserva = () => {
-    const initialReservation = {
-      nombre:"",
-      telefono:"",
-      mail:"",
-      invitados:"",
-      calendario:"",
+  const initialReservation = {
+    nombre: "",
+    telefono: "",
+    mail: "",
+    invitados: "",
+    calendario: "",
+
+  }
+  const [reservation, setReservation] = useState(initialReservation)
+
+  const handleReservationForm = (e) => {
+
+    // console.log(e.target.name)
+    // console.log(e.target.value)
+    setReservation({
+      ...reservation,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const submitReservation = async (e) => {
+    e.preventDefault()
+
+    try {
+      const collectionRef = collection(db, "Reservas")
+      await addDoc(collectionRef, {
+        ...reservation
+      })
+
+    } catch (error) {
+      console.log(error)
 
     }
-    const [reservation, setReservation] = useState(initialReservation)
+    setReservation({ ...initialReservation })
 
-    const  handleReservationForm = (e) => {
-
-      // console.log(e.target.name)
-      // console.log(e.target.value)
-      setReservation({
-        ...reservation,
-        [e.target.name] : e.target.value,        
-      }) 
-    }
-
-    const submitReservation = (e) => {
-      e.preventDefault ()
-      console.log(reservation)
-      alert("Reserva Realizada con éxito")
+    // console.log(reservation)
+    alert("Reserva Realizada con éxito")
 
 
-    }
+  }
 
   return (
     <>
@@ -48,11 +64,11 @@ export const Reserva = () => {
             </div>
             <div className="inputs">
               <div className="nombre">
-                <TextField inputProps={{type:"text", required:true}}value={reservation.nombre} name="nombre" onChange={handleReservationForm} id="outlined-basic" label="Nombre Completo" variant="filled" color="error"/>
+                <TextField inputProps={{ type: "text", required: true }} value={reservation.nombre} name="nombre" onChange={handleReservationForm} id="outlined-basic" label="Nombre Completo" variant="filled" color="error" />
               </div>
 
               <div className="telefono">
-                <TextField value={reservation.telefono} name="telefono" onChange={handleReservationForm} id="outlined-basic"  label="Telefono" variant="filled" color="error" type="number" />
+                <TextField value={reservation.telefono} name="telefono" onChange={handleReservationForm} id="outlined-basic" label="Telefono" variant="filled" color="error" type="number" />
               </div>
 
               <div className="mail">
@@ -60,11 +76,11 @@ export const Reserva = () => {
               </div>
 
               <div className="invitados">
-                <TextField inputProps={{min:1, max:15}}  value={reservation.invitados} name="invitados" onChange={handleReservationForm} id="outlined-basic" label="N° de Invitados" variant="filled" color="error" type="number" />
+                <TextField inputProps={{ min: 1, max: 15 }} value={reservation.invitados} name="invitados" onChange={handleReservationForm} id="outlined-basic" label="N° de Invitados" variant="filled" color="error" type="number" />
               </div>
 
               <div className="calendario">
-                <TextField value={reservation.calendario} inputProps={{min: moment().format("YYYY-MM-DD hh:mm")}} name="calendario" onChange={handleReservationForm} id="outlined-basic" variant="filled" type="datetime-local" color="error" />
+                <TextField value={reservation.calendario} inputProps={{ min: moment().format("YYYY-MM-DD hh:mm") }} name="calendario" onChange={handleReservationForm} id="outlined-basic" variant="filled" type="datetime-local" color="error" />
               </div>
 
 
@@ -72,10 +88,10 @@ export const Reserva = () => {
 
             </div>
 
-            <Button variant="contained" color="error" size="large"  type="submit"  >Enviar</Button>
-            
+            <Button variant="contained" color="error" size="large" type="submit"  >Enviar</Button>
 
-         
+
+
 
 
 

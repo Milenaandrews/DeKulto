@@ -114,7 +114,7 @@ export const Menu = () => {
       </div>
       <div className="platos">
         {
-          cartaEntradas.map((plato, index) => (
+          menu.map((plato, index) => (
             <CardMenu key={index} plato={plato} />
           ))
         }
