@@ -19,7 +19,7 @@ export const About = () => {
             <h3>Qué nos hace especiales?</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, delectus.</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, dolore?</p>
-            <Button variant="contained" color="error" size="large" href="./contacto">Contacto</Button>
+            <Button variant="contained" color="error" size="large" href="./contacto" sx={{ fontSize: 13 }}>Contacto</Button>
 
           </div>
         </div>

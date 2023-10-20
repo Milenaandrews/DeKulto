@@ -82,22 +82,9 @@ export const Reserva = () => {
               <div className="calendario">
                 <TextField value={reservation.calendario} inputProps={{ min: moment().format("YYYY-MM-DD hh:mm") }} name="calendario" onChange={handleReservationForm} id="outlined-basic" variant="filled" type="datetime-local" color="error" />
               </div>
-
-
-
-
             </div>
-
-            <Button variant="contained" color="error" size="large" type="submit"  >Enviar</Button>
-
-
-
-
-
-
-
+            <Button variant="contained" color="error" size="large" type="submit" sx={{mt:1, fontSize: 10}} >Enviar</Button>
           </form>
-
 
         </div>
 
