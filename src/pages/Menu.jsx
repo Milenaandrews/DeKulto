@@ -7,14 +7,17 @@ import entrada2 from "../assets/images/entrada2.jpg"
 import { useState, useEffect } from "react"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "../firebase/Firebase"
-import nigiri from "../assets/images/nigiri.jpg"
+import nigiriImg from "../assets/images/nigiri.jpg"
 
 
 
 
 export const Menu = () => {
 
-  const [menu, setMenu] = useState([]);
+  // const [menu, setMenu] = useState([]);
+
+  const [entrada, setEntrada] =useState([])
+  const [nigiri, setNigiri] = useState ([])
 
   useEffect(() => {
 
@@ -30,7 +33,9 @@ export const Menu = () => {
           // console.log(data)
 
         })
-        setMenu(docs);
+        setEntrada(docs.filter((doc)=>doc.tipo === "entrada"));
+        setNigiri(docs.filter((doc)=>doc.tipo === "nigiri"));
+        
 
 
       } catch (error) {
@@ -43,7 +48,7 @@ export const Menu = () => {
     getMenu()
   }, [])
 
-  console.log(menu)
+  
 
 
 
@@ -53,53 +58,53 @@ export const Menu = () => {
 
 
 
-  const cartaEntradas = [
-    {
-      nombre: "GYUTATAKI",
-      precio: "$11.900",
-      descripcion: "Finas láminas de lomo liso sellado a la sal con jengibre fresco, cebollín, y salsa ponzu",
-      imagen: entrada1,
+  // const cartaEntradas = [
+  //   {
+  //     nombre: "GYUTATAKI",
+  //     precio: "$11.900",
+  //     descripcion: "Finas láminas de lomo liso sellado a la sal con jengibre fresco, cebollín, y salsa ponzu",
+  //     imagen: entrada1,
 
-    },
-    {
-      nombre: "EDAMAME",
-      precio: "$6.400",
-      descripcion: "Poroto de soya cocido al vapor y salteado con aceite de sesamo, flor de sal y sishimi togarashi",
-      imagen: entrada2,
+  //   },
+  //   {
+  //     nombre: "EDAMAME",
+  //     precio: "$6.400",
+  //     descripcion: "Poroto de soya cocido al vapor y salteado con aceite de sesamo, flor de sal y sishimi togarashi",
+  //     imagen: entrada2,
 
-    },
-    {
-      nombre: "Completo Italiano",
-      precio: 364,
-      descripcion: "ksalkjdslkdjlksajlkd",
-      imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
+  //   },
+  //   {
+  //     nombre: "Completo Italiano",
+  //     precio: 364,
+  //     descripcion: "ksalkjdslkdjlksajlkd",
+  //     imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
 
-    },
-  ]
+  //   },
+  // ]
 
-  const cartaNigiri = [
-    {
-      nombre: "GYUTATAKI",
-      precio: "$11.900",
-      descripcion: "Finadsddds láminas de lomo liso sellado a la sal con jengibre fresco, cebollín, y salsa ponzu",
-      imagen: entrada1,
+  // const cartaNigiri = [
+  //   {
+  //     nombre: "GYUTATAKI",
+  //     precio: "$11.900",
+  //     descripcion: "Finas láminas de lomo liso sellado a la sal con jengibre fresco, cebollín, y salsa ponzu",
+  //     imagen: entrada1,
 
-    },
-    {
-      nombre: "EDAMAME",
-      precio: "$6.400",
-      descripcion: "Poroto de soya cocido al vapor y salteado con aceite de sesamo, flor de sal y sishimi togarashi",
-      imagen: entrada2,
+  //   },
+  //   {
+  //     nombre: "EDAMAME",
+  //     precio: "$6.400",
+  //     descripcion: "Poroto de soya cocido al vapor y salteado con aceite de sesamo, flor de sal y sishimi togarashi",
+  //     imagen: entrada2,
 
-    },
-    {
-      nombre: "Completo Italiano",
-      precio: 364,
-      descripcion: "ksalkjdslkdjlksajlkd",
-      imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
+  //   },
+  //   {
+  //     nombre: "Completo Italiano",
+  //     precio: 364,
+  //     descripcion: "ksalkjdslkdjlksajlkd",
+  //     imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
 
-    },
-  ]
+  //   },
+  // ]
 
 
   return (
@@ -114,18 +119,18 @@ export const Menu = () => {
       </div>
       <div className="platos">
         {
-          menu.map((plato, index) => (
-            <CardMenu key={index} plato={plato} />
+          entrada.map((plato) => (
+            <CardMenu key={plato.id} plato={plato} />
           ))
         }
       </div>
       <div className="imgCarta">
-        <img src={nigiri}></img>
+        <img src={nigiriImg}></img>
       </div>
       <div className="platos">
         {
-          cartaNigiri.map((plato, index) => (
-            <CardMenu key={index} plato={plato} />
+          nigiri.map((plato) => (
+            <CardMenu key={plato.id} plato={plato} />
           ))
         }
       </div>
