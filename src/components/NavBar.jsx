@@ -22,7 +22,7 @@ export const NavBar = () => {
 
   return (
     <header className="header">
-         <NavLink to="#" className="logo"><img src={Logo} alt="" /></NavLink>  
+         <NavLink to="/" className="logo"><img src={Logo} alt="" /></NavLink>  
         <nav className="navbar" ref={navbarRef}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">Nosotros</NavLink>
