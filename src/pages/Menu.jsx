@@ -2,8 +2,6 @@ import cartaFoto from "../assets/images/carta.jpg"
 import entradas from "../assets/images/entradas.jpg"
 import { CardMenu } from "../components/CardMenu"
 import "../pages/Menu.css"
-import entrada1 from "../assets/images/entrada1.jpg"
-import entrada2 from "../assets/images/entrada2.jpg"
 import { useState, useEffect } from "react"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "../firebase/Firebase"
@@ -16,8 +14,9 @@ export const Menu = () => {
 
   // const [menu, setMenu] = useState([]);
 
-  const [entrada, setEntrada] =useState([])
-  const [nigiri, setNigiri] = useState ([])
+  const [entrada, setEntrada] = useState([])
+  const [nigiri, setNigiri] = useState([])
+  const [makimono, setMakimono] = useState([])
 
   useEffect(() => {
 
@@ -33,9 +32,10 @@ export const Menu = () => {
           // console.log(data)
 
         })
-        setEntrada(docs.filter((doc)=>doc.tipo === "entrada"));
-        setNigiri(docs.filter((doc)=>doc.tipo === "nigiri"));
-        
+        setEntrada(docs.filter((doc) => doc.tipo === "entrada"));
+        setNigiri(docs.filter((doc) => doc.tipo === "nigiri"));
+        setMakimono(docs.filter((doc) => doc.tipo === "makimono"));
+
 
 
       } catch (error) {
@@ -48,7 +48,7 @@ export const Menu = () => {
     getMenu()
   }, [])
 
-  
+
 
 
 
@@ -73,15 +73,6 @@ export const Menu = () => {
   //     imagen: entrada2,
 
   //   },
-  //   {
-  //     nombre: "Completo Italiano",
-  //     precio: 364,
-  //     descripcion: "ksalkjdslkdjlksajlkd",
-  //     imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
-
-  //   },
-  // ]
-
   // const cartaNigiri = [
   //   {
   //     nombre: "GYUTATAKI",
@@ -97,13 +88,7 @@ export const Menu = () => {
   //     imagen: entrada2,
 
   //   },
-  //   {
-  //     nombre: "Completo Italiano",
-  //     precio: 364,
-  //     descripcion: "ksalkjdslkdjlksajlkd",
-  //     imagen: "https://tofuu.getjusto.com/orioneat-prod-resized/KrZue287dpHtDStBK-1200-1200.webp",
-
-  //   },
+  //  
   // ]
 
 
@@ -130,6 +115,16 @@ export const Menu = () => {
       <div className="platos">
         {
           nigiri.map((plato) => (
+            <CardMenu key={plato.id} plato={plato} />
+          ))
+        }
+      </div>
+      <div className="imgCarta">
+        <img src="https://res.cloudinary.com/dzppqa6a9/image/upload/v1697813973/DeKulto/makimonos_gyshxr.jpg"></img>
+      </div>
+      <div className="platos">
+        {
+          makimono.map((plato) => (
             <CardMenu key={plato.id} plato={plato} />
           ))
         }

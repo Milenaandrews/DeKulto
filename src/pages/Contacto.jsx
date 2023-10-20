@@ -1,4 +1,4 @@
-import React from 'react'
+
 import "../pages/Contacto.css"
 
 const Contacto = () => {
@@ -13,12 +13,12 @@ const Contacto = () => {
                     <div className="content">
                         <h4>Dirección :</h4>
                         <h6>Bombero Villalobos 274</h6>
-                        <h4>Mail de contacto</h4>
+                        <h4>Mail:</h4>
                         <h6>dekulto@gmail.com</h6>
                         <h4>Telefono:  </h4>
                         <h6>+569920133486 </h6>
                         <h4>Horario de Atención:  </h4>
-                        <h6>Marte a Domingo</h6>
+                        <h6>Martes a Domingo</h6>
                         <h6>13.00 a 23.00</h6>
                     </div>
                 </div>

@@ -1,10 +1,11 @@
 .home{
+    flex: 1 1 1 45rem;
     min-height: 100vh;
     /* color:aliceblue; */
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, rgb(0 0 0 / 90%), rgb(68 68 68 / 35%)), url(../assets/images/ImagenHome.jpg) no-repeat;
-    background-size: cover;
+    background: linear-gradient(90deg, rgb(0 0 0 / 90%), rgb(68 68 68 / 35%)), url(https://res.cloudinary.com/dzppqa6a9/image/upload/v1697811709/DeKulto/nyw0ho0myazx3semx3ky.jpg) no-repeat;
+      background-size: cover;
     background-position: center;
     /* border: 3px solid red; */
 }
