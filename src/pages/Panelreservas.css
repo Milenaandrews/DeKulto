@@ -1,7 +1,8 @@
 .tabla{
-    background-color: aliceblue;
+    background-color: black;
+    padding-top: 30rem;
 
-    padding-top: 400px;
+    
     font-size: 30px;
     display: flex;
 }

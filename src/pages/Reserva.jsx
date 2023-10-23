@@ -68,19 +68,20 @@ export const Reserva = () => {
               </div>
 
               <div className="telefono">
-                <TextField value={reservation.telefono} name="telefono" onChange={handleReservationForm} id="outlined-basic" label="Telefono" variant="filled" color="error" type="number" />
+                <TextField value={reservation.telefono} name="telefono" onChange={handleReservationForm} id="outlined-basic" label="Telefono" variant="filled" color="error" type="number" inputProps={{required: true }} />
               </div>
 
               <div className="mail">
-                <TextField value={reservation.mail} name="mail" onChange={handleReservationForm} id="outlined-basic" label="Email" variant="filled" color="error" type="mail" />
+                <TextField value={reservation.mail} name="mail" onChange={handleReservationForm} id="outlined-basic" label="Email" variant="filled" color="error" type="email"
+                inputProps={{required: true }}/>
               </div>
 
               <div className="invitados">
-                <TextField inputProps={{ min: 1, max: 15 }} value={reservation.invitados} name="invitados" onChange={handleReservationForm} id="outlined-basic" label="N° de Invitados" variant="filled" color="error" type="number" />
+                <TextField inputProps={{ min: 1, max: 15, required:true }} value={reservation.invitados} name="invitados" onChange={handleReservationForm} id="outlined-basic" label="N° de Invitados" variant="filled" color="error" type="number"  />
               </div>
 
               <div className="calendario">
-                <TextField value={reservation.calendario} inputProps={{ min: moment().format("YYYY-MM-DD hh:mm") }} name="calendario" onChange={handleReservationForm} id="outlined-basic" variant="filled" type="datetime-local" color="error" />
+                <TextField value={reservation.calendario} inputProps={{ min: moment().format("YYYY-MM-DD hh:mm"), required:true }} name="calendario" onChange={handleReservationForm} id="outlined-basic" variant="filled" type="datetime-local" color="error" />
               </div>
             </div>
             <Button variant="contained" color="error" size="large" type="submit" sx={{mt:1, fontSize: 10}} >Enviar</Button>

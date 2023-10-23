@@ -8,6 +8,7 @@ import Home from "../pages/Home"
 import Contacto from "../pages/Contacto"
 import { Login } from "../pages/Login"
 import { Panelreservas } from "../pages/Panelreservas"
+import { Panelmenu } from "../pages/Panelmenu"
 
 
 export const MainRouter = () => {
@@ -21,6 +22,7 @@ export const MainRouter = () => {
         <Route path="/*" element={<Pagenotfound/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/panel" element={<Panelreservas/>}/>
+        <Route path="/panelmenu" element={<Panelmenu/>}/>
         
     </Routes>
   )

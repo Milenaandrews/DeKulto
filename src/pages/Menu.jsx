@@ -30,32 +30,16 @@ export const Menu = () => {
           data.id = doc.id
           return data
           // console.log(data)
-
         })
         setEntrada(docs.filter((doc) => doc.tipo === "entrada"));
         setNigiri(docs.filter((doc) => doc.tipo === "nigiri"));
         setMakimono(docs.filter((doc) => doc.tipo === "makimono"));
-
-
-
       } catch (error) {
         console.log(error)
-
       }
-
     }
-
     getMenu()
   }, [])
-
-
-
-
-
-
-
-
-
 
 
   // const cartaEntradas = [

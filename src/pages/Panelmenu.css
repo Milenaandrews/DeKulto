@@ -1,0 +1,11 @@
+.formulariomenu{
+    padding-top: 20rem;
+}
+
+.formulariomenu form{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+  
+    
+}
