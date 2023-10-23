@@ -19,16 +19,22 @@ export const NavBar = () => {
     navbarRef.current.classList.toggle("active");
     searchRef.current.classList.remove("active")
     };
+  
+  const navlinkHandler = ()=>{
+    navbarRef.current.classList.remove("active");
+    searchRef.current.classList.remove("active")
+
+  }
 
   return (
     <header className="header">
          <NavLink to="/" className="logo"><img src={Logo} alt="" /></NavLink>  
         <nav className="navbar" ref={navbarRef}>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">Nosotros</NavLink>
-            <NavLink to="/menu">Carta</NavLink>
-            <NavLink to="/reserva">Reservas</NavLink>
-            <NavLink to="/contacto">Contacto</NavLink>
+            <NavLink to="/" onClick={navlinkHandler}>Home</NavLink>
+            <NavLink to="/about" onClick={navlinkHandler}>Nosotros</NavLink>
+            <NavLink to="/menu" onClick={navlinkHandler}>Carta</NavLink>
+            <NavLink to="/reserva" onClick={navlinkHandler}>Reservas</NavLink>
+            <NavLink to="/contacto" onClick={navlinkHandler}>Contacto</NavLink>
         </nav>
         <div className="icon">
           <div><SearchIcon fontSize="large" className="search" onClick={searchHandler}/></div>

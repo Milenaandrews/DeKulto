@@ -14,7 +14,7 @@ const Contacto = () => {
                         <h6>Bombero Villalobos 274</h6>
                         <h4>Mail:</h4>
                         <h6>dekulto@gmail.com</h6>
-                        <h4>Telefono:  </h4>
+                        <h4>Teléfono:  </h4>
                         <h6>+569920133486 </h6>
                         <h4>Horario de Atención:  </h4>
                         <h6>Martes y Miércoles</h6>
