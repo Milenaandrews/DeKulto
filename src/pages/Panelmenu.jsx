@@ -1,7 +1,7 @@
 import { Button, TextField } from "@mui/material"
 import "./Panelmenu.css"
 import { useEffect, useState } from "react";
-import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc, query } from "firebase/firestore";
 
 import * as React from 'react';
 import Table from '@mui/material/Table';
@@ -26,9 +26,10 @@ export const Panelmenu = () => {
 
   }
   const [menuform, setMenuform] = useState(initialMenu)
+  const [currentid, setCurrentid] = useState("")
+
 
   const handleMenuForm = (e) => {
-
     // console.log(e.target.name)
     // console.log(e.target.value)
     setMenuform({
@@ -36,59 +37,92 @@ export const Panelmenu = () => {
       [e.target.name]: e.target.value,
     })
   }
-
   const submitMenu = async (e) => {
     e.preventDefault()
-
-    try {
-      const collectionRef = collection(db, "cartaentradas")
-      await addDoc(collectionRef, {
-        ...menuform
-      })
-
-    } catch (error) {
-      console.log(error)
-
+    if (currentid === "") {
+      try {
+        // const collectionRef = collection(db, "cartaentradas")
+        // await addDoc(collectionRef, {
+        //   ...menuform
+        // })
+        await db.collection("cartaentradas").add(menuform)
+      } catch (error) {
+        console.log(error)
+      }
+      setMenuform({ ...initialMenu })
+      // console.log(reservation)
+      alert("Plato guardado con exito")
+    } else {
+      await db.collection("cartaentradas").doc(currentid).update(menuform)
+      
+      setCurrentid("")
+      alert("plato actualizado")
     }
-    setMenuform({ ...initialMenu })
-
-    // console.log(reservation)
-    alert("Plato guardaod con exito")
-
-
   }
 
 
-//!FUNCION PARA TRAER INFO DEL MENU
+
+  //!FUNCION PARA TRAER INFO DEL MENU
   const [menu, SetMenu] = useState([])
 
-    useEffect(() => {
+  useEffect(() => {
 
-        const getMenu = async () => {
-            try {
-                const collectionRef = collection(db, "cartaentradas");
-                const response = await getDocs(collectionRef)
+    const getMenu = async () => {
+      try {
+        // const collectionRef = collection(db, "cartaentradas");
+        // const response = await getDocs(collectionRef)
+        // const docs = response.docs.map((doc) => {
+        //     const data = doc.data() //la informacion de cada documento que guarda firestore
+        //     data.id = doc.id
+        //     return data
+        //     // console.log(data)
+        // })
+        db.collection("cartaentradas").onSnapshot((query) => {
+          const docs = []
+          query.forEach((doc) => {
+            docs.push({
+              ...doc.data(), id: doc.id
 
-                const docs = response.docs.map((doc) => {
-                    const data = doc.data() //la informacion de cada documento que guarda firestore
-                    data.id = doc.id
-                    return data
-                    // console.log(data)
+            })
+            SetMenu(docs)
+          })
+        })
 
-                })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getMenu()
+  }, [])
 
-                SetMenu(docs)
+
+  //!Funcion para eliminar
+
+  const eliminar = async (id) => {
+    if (!window.confirm("Estas seguro de eliminar esto")) {
+      return
+    }
+    await db.collection("cartaentradas").doc(id).delete()
+  }
+
+  //! Funcion para traer un plato
+
+  const getPlatoById = async (id) => {
+    const doc = await db.collection("cartaentradas").doc(id).get()
+    setMenuform({
+      ...doc.data()
+    })
+  }
+
+  useEffect(() => {
+    if (currentid === "") {
+      setMenuform(initialMenu)
+    } else {
+      getPlatoById(currentid)
+    }
+  }, [currentid])
 
 
-            } catch (error) {
-                console.log(error)
-
-            }
-
-        }
-
-        getMenu()
-    }, [])
 
 
   return (
@@ -96,24 +130,24 @@ export const Panelmenu = () => {
       <div className="formulariomenu">
         <form onSubmit={submitMenu}>
           <div className="nombre">
-            <TextField inputProps={{ type: "text", required: true }} value={menuform.nombre} onChange={handleMenuForm}  name="nombre" id="outlined-basic" label="nombre" variant="filled" color="error" />
+            <TextField inputProps={{ type: "text", required: true }} value={menuform.nombre} onChange={handleMenuForm} name="nombre" id="outlined-basic" label="nombre" variant="filled" color="error" />
           </div>
           <div className="descripcion">
-            <TextField inputProps={{ type: "text", required: true }} value={menuform.descripcion} name="descripcion" id="outlined-basic" label="Descripcion" variant="filled" color="error" onChange={handleMenuForm}/>
+            <TextField inputProps={{ type: "text", required: true }} value={menuform.descripcion} name="descripcion" id="outlined-basic" label="Descripcion" variant="filled" color="error" onChange={handleMenuForm} />
           </div>
           <div className="precio">
-            <TextField inputProps={{ type: "text", required: true }} value={menuform.precio} name="precio" id="outlined-basic" label="precio" variant="filled" color="error" onChange={handleMenuForm}/>
+            <TextField inputProps={{ type: "text", required: true }} value={menuform.precio} name="precio" id="outlined-basic" label="precio" variant="filled" color="error" onChange={handleMenuForm} />
           </div>
           <div className="imagen">
-            <TextField inputProps={{ type: "text", required: true }} value={menuform.imagen} name="imagen" id="outlined-basic" label="Url Imagen" variant="filled" color="error" onChange={handleMenuForm}/>
+            <TextField inputProps={{ type: "text", required: true }} value={menuform.imagen} name="imagen" id="outlined-basic" label="Url Imagen" variant="filled" color="error" onChange={handleMenuForm} />
           </div>
           <div className="tipo">
-            <TextField inputProps={{ type: "text", required: true }} value={menuform.tipo} name="tipo" id="outlined-basic" label="tipo" variant="filled" color="error" onChange={handleMenuForm}/>
+            <TextField inputProps={{ type: "text", required: true }} value={menuform.tipo} name="tipo" id="outlined-basic" label="tipo" variant="filled" color="error" onChange={handleMenuForm} />
           </div>
           <div>
-            <Button variant="contained" color="error" size="large" type="submit" sx={{mt:1, fontSize: 10}} >guardar</Button>
+            <Button variant="contained" color="error" size="large" type="submit" sx={{ mt: 1, fontSize: 10 }} >guardar</Button>
           </div>
-          
+
         </form>
       </div>
       <div className="tablamenu">
@@ -145,8 +179,8 @@ export const Panelmenu = () => {
                   <TableCell align="right">{menu.imagen}</TableCell>
                   <TableCell align="right">{menu.tipo}</TableCell>
                   <TableCell align="right">
-                    <Button variant="contained" color="secondary" size="large" href="./contacto" sx={{ fontSize: 10 }}>Editar</Button>
-                    <Button variant="contained" color="error" size="large" href="./contacto" sx={{ fontSize: 10 }}>Eliminar</Button></TableCell>
+                    <Button variant="contained" color="secondary" size="large" onClick={() => setCurrentid(menu.id)} sx={{ fontSize: 10 }}>Editar</Button>
+                    <Button variant="contained" color="error" size="large" onClick={() => eliminar(menu.id)} sx={{ fontSize: 10 }}>Eliminar</Button></TableCell>
                 </TableRow>
               ))}
             </TableBody>
