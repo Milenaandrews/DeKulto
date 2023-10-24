@@ -21,18 +21,16 @@ export const Panelreservas = () => {
 
         const getReservas = async () => {
             try {
-                const collectionRef = collection(db, "Reservas");
-                const response = await getDocs(collectionRef)
+                db.collection("Reservas").onSnapshot((query) => {
+                    const docs = []
+                    query.forEach((doc) => {
+                        docs.push({
+                            ...doc.data(), id: doc.id
 
-                const docs = response.docs.map((doc) => {
-                    const data = doc.data() //la informacion de cada documento que guarda firestore
-                    data.id = doc.id
-                    return data
-                    // console.log(data)
-
+                        })
+                        SetReservas(docs)
+                    })
                 })
-
-                SetReservas(docs)
 
 
             } catch (error) {
@@ -45,9 +43,16 @@ export const Panelreservas = () => {
         getReservas()
     }, [reservas])
 
+    const eliminar = async (id) => {
+        if (!window.confirm("Estas seguro de eliminar esto")) {
+          return
+        }
+        await db.collection("Reservas").doc(id).delete()
+      }
+
 
     return (
-    
+
         <section>
             <div className="tabla">
                 <TableContainer component={Paper}>
@@ -78,8 +83,8 @@ export const Panelreservas = () => {
                                     <TableCell align="right">{reserva.invitados}</TableCell>
                                     <TableCell align="right">{reserva.calendario}</TableCell>
                                     <TableCell align="right">
-                                    <Button variant="contained" color="secondary" size="large" href="./contacto" sx={{ fontSize: 10 }}>Editar</Button>
-                                    <Button variant="contained" color="error" size="large" href="./contacto" sx={{ fontSize: 10 }}>Eliminar</Button></TableCell>
+                                        <Button variant="contained" color="secondary" size="large" href="./contacto" sx={{ fontSize: 10 }}>Editar</Button>
+                                        <Button variant="contained" color="error" size="large" sx={{ fontSize: 10 }} onClick={() => eliminar(reserva.id)}>Eliminar</Button></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

@@ -32,10 +32,7 @@ export const Reserva = () => {
     e.preventDefault()
 
     try {
-      const collectionRef = collection(db, "Reservas")
-      await addDoc(collectionRef, {
-        ...reservation
-      })
+      await db.collection("Reservas").add(reservation)
 
     } catch (error) {
       console.log(error)
