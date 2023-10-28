@@ -37,7 +37,7 @@ export const NavBar = () => {
             <NavLink to="/contacto" onClick={navlinkHandler}>Contacto</NavLink>
         </nav>
         <div className="icon">
-          <div><SearchIcon fontSize="large" className="search" onClick={searchHandler}/></div>
+          {/* <div><SearchIcon fontSize="large" className="search" onClick={searchHandler}/></div> */}
           <div ><MenuIcon className="menu" id="menu-btn" onClick={navbarHandler}/></div>
         </div>
         <div className="search-form" ref={searchRef}>

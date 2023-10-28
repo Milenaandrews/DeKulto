@@ -1,11 +1,14 @@
-.formulariomenu{
+.formulariomenu {
     padding-top: 20rem;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
 }
 
-.formulariomenu form{
+.formulariomenu form {
     background-color: white;
     display: flex;
     justify-content: space-between;
-  
-    
+
 }

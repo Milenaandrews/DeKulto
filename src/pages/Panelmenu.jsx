@@ -149,7 +149,7 @@ export const Panelmenu = () => {
           </div>
 
         </form>
-      </div>
+      
       <div className="tablamenu">
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -187,6 +187,7 @@ export const Panelmenu = () => {
           </Table>
         </TableContainer>
 
+      </div>
       </div>
 
 

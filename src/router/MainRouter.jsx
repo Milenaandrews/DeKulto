@@ -21,7 +21,7 @@ export const MainRouter = () => {
         <Route path="/contacto" element={<Contacto/>}/>
         <Route path="/*" element={<Pagenotfound/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/panel" element={<Panelreservas/>}/>
+        <Route path="/panelreservas" element={<Panelreservas/>}/>
         <Route path="/panelmenu" element={<Panelmenu/>}/>
         
     </Routes>

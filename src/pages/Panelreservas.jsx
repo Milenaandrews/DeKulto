@@ -55,6 +55,7 @@ export const Panelreservas = () => {
 
         <section>
             <div className="tabla">
+                <h1>Panel de Reservas</h1>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
