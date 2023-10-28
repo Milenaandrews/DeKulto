@@ -1,8 +1,18 @@
-# React + Vite
+# Pagina Web Dekulto Gastrobar    
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cuarto proyecto Bootcamp
 
-Currently, two official plugins are available:
+Esta página web creada especialemente para restaurant de Dekulto, proporciona carta, formulario de reservas, pagina de contacto, un descripcion del restaurant.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Además cuenta con pagina de login y 2 paneles, uno donde se puede ver las reservas hechas y otro un crud para poder manipular los platos en la carta, ambos hechos con base de datos firebase.
+
+
+## Tecnologías
+
+- HTML
+- CSS
+- Java Script
+- Git hub
+- React
+- Vite
+- Firebase
