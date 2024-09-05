@@ -18,7 +18,7 @@ export const Footer = () => {
     </div>
     
     <div className="footer-bottom">
-        <p>copyright &copy;2023 designed by <span>Milenaria</span></p>
+        <p>copyright &copy;2023 designed by <span>WebsiteChile</span></p>
     </div>
 </footer>
   )
